@@ -1,0 +1,46 @@
+1. sudo apt update
+2.  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+3.  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+4.  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+5.  sudo apt update
+6.  apt-cache policy docker-ce
+7.  sudo apt install docker-ce
+8.  sudo systemctl status docker 
+9.  sudo usermod -aG docker $USER
+10.  newgrp docker
+12.  docker images 
+13.  vi Dockerfile
+15.  docker build -t gcr.io/coral-shoreline-311610/test-images:test0 .
+16.  docker images 
+17.  docker push gcr.io/coral-shoreline-311610/test-images:test0
+
+
+
+docker build -t gcr.io/<Project_id>Images-name:tags
+docker images 
+docker push gcr.io/<Project_id>Images-name:tags
+
+after go to gcr(google Container Registry)
+
+---
+https://cloud.google.com/container-registry/docs/advanced-authentication
+1. IAM & ADMIN
+2. Service Accounts 
+3. Select the project that you want to use.
+4. In the Service account name field, enter a name.
+5. In the Service account description field, enter a description.
+6. Click Create.
+7. Click the Select a role field. Under All roles, select an appropriate Cloud Storage role based on the permissions you want to grant to the service account.
+8. Click Done.
+9. Obtain a key for the service account that will interact with Container Registry.
+10. In the Cloud Console, go to the Service Accounts page. --> "Go to the Service Accounts page"
+11. Click the email address of the service account that you want to use.
+12. Click Keys.
+13. Click Add key, then Create new key.
+14. Click Create. A JSON file that contains your key downloads to your computer.
+    The instructions on this page use the file name keyfile.json for this key file.
+15. Click Close.
+16. Run the following command to log in to Cloud SDK as a service account.
+	gcloud auth activate-service-account ACCOUNT --key-file=KEY-FILE
+	gcloud auth activate-service-account test-341@coral-shoreline-311610.iam.gserviceaccount.com --key-file=/home/ubuntu/coral-shoreline-311610-e3a36720906d.json
+
